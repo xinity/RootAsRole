@@ -7,10 +7,10 @@ if [ "$SUDO_USER" = "" ]; then
 fi;
 
 echo "Capabilities & PAM packages installation"
-apt-get install gcc || exit
-apt-get install libcap2 libcap2-bin libcap-dev libcap-ng-dev || exit
-apt-get install libpam0g-dev || exit
-apt-get install libxml2 libxml2-dev || exit
+apt-get install -qqy gcc || exit
+apt-get install -qqy libcap2 libcap2-bin libcap-dev libcap-ng-dev || exit
+apt-get install -qqy libpam0g-dev || exit
+apt-get install -qqy libxml2 libxml2-dev || exit
 
 echo "Define root role for the user $SUDO_USER:"
 sed -i 's/ROOTADMINISTRATOR/'$SUDO_USER'/g' ./resources/capabilityRole.xml
